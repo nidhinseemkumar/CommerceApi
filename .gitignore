@@ -3,19 +3,21 @@
 *.user
 *.userosscache
 *.sln.docstates
+*.suo
 
 ## [Build Results]
 [Bb]in/
 [Oo]bj/
+[Pp]ublish/
+TestResults/
 
 ## [Environment Secrets]
+# DO NOT commit real secrets. Use Environment Variables or User Secrets.
 appsettings.json
 appsettings.Development.json
 *.pfx
 *.cert
 *.secret.json
-
-## [User Secrets]
 secrets.json
 
 ## [Rider/IntelliJ]
@@ -29,9 +31,13 @@ secrets.json
 *.DS_Store
 
 ## [Others]
-*.suo
-*.user
-*.userosscache
-*.sln.docstates
 *.cache
 *.log
+*.tmp
+.heartbeat
+.node_repl_history
+
+## [Entity Framework]
+*.db
+*.db-shm
+*.db-wal

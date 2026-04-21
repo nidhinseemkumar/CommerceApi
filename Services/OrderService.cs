@@ -6,13 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CommerceApi.Services;
 
-public interface IOrderService
-{
-    Task<List<Order>> GetAllAsync();
-    List<Order> GetUserOrders(int userId);
-    Task<Order> PlaceOrderAsync(int userId, CommerceApi.DTOs.PlaceOrderDto dto);
-}
-
 public class OrderService(AppDbContext db) : IOrderService
 {
     public async Task<List<Order>> GetAllAsync() => await db.Orders.Include(o => o.Items).ToListAsync();

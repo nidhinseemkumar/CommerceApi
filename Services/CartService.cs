@@ -5,14 +5,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CommerceApi.Services;
 
-public interface ICartService
-{
-    Task<List<CartItem>> GetCartItemsAsync(int userId);
-    Task AddToCartAsync(int userId, int productId, int quantity);
-    Task RemoveFromCartAsync(int userId, int cartItemId);
-    Task ClearCartAsync(int userId);
-}
-
 public class CartService(AppDbContext db) : ICartService
 {
     public async Task<List<CartItem>> GetCartItemsAsync(int userId)
