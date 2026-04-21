@@ -16,6 +16,7 @@ public partial class AuthService
             throw new Exceptions.UnauthorizedException();
 
         return GenerateToken(user);
+        
     }
 
     private string GenerateToken(User user)
