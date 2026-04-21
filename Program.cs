@@ -65,9 +65,10 @@ builder.Services.AddScoped<IProductService, CachedProductService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<ICategoryService, CachedCategoryService>();
 
+builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
-builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IFileService, FileService>();
 
 builder.Services.AddControllers()
     .AddJsonOptions(options =>

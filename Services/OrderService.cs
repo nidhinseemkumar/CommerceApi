@@ -8,10 +8,12 @@ namespace CommerceApi.Services;
 
 public class OrderService(AppDbContext db) : IOrderService
 {
-    public async Task<List<Order>> GetAllAsync() => await db.Orders.Include(o => o.Items).ToListAsync();
+    public async Task<List<Order>> GetAllAsync() => 
+        await db.Orders.Include(o => o.User).Include(o => o.Items).ToListAsync();
     public List<Order> GetUserOrders(int userId)
     {
         return db.Orders
+            .Include(o => o.User)
             .Include(o => o.Items).ThenInclude(i => i.Product)
             .Where(o => o.UserId == userId).ToList();
     }
